@@ -1,0 +1,29 @@
+math repressilator
+{ realDomain t ;
+	t.min=0;t.delta=0.1;t.max=1000; 
+  
+  //Define dependent variables
+  	real mx(t), my(t), mz(t); //mRNAs
+	real x(t), y(t), z(t);  //Proteins
+
+  //Define parameters
+	real k0 = 0.03;
+	real k1 = 30;
+	real k2 = 0.35;
+	real k3 = 6.93;
+	real k4 = 0.07;
+	real H = 40;
+	real n = 2;
+	
+
+       // Initial values
+	when (t=t.min){mx = 0; my = 0; mz = 0; x=0; y=20; z =0;} 
+  // ODEs
+	mx:t = k0 + k1/(1+((z/H)^n)) - k2*mx; 
+	my:t = k0 + k1/(1+((x/H)^n)) - k2*my;
+	mz:t = k0 + k1/(1+((y/H)^n)) - k2*mz;    
+	x:t = k3*mx - k4*x;
+	y:t = k3*my - k4*y;
+	z:t = k3*mz - k4*z;
+  
+}

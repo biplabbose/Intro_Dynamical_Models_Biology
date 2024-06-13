@@ -1,0 +1,27 @@
+math NF_enzyme
+{ realDomain t ;
+	t.min=0;t.delta=0.1;t.max=50; 
+  
+  //Define dependent variables
+  	real x(t), yp(t); 
+
+  //Define parameters
+	real s = 1; 
+	real ks = 1;  
+	real kd = 1; 
+	real k1 = 1; 
+	real k2 = 1; 
+	real km1 = 0.1; 
+	real km2 = 0.1; 
+	real yt =1;
+	real e = 3;
+
+
+  // Initial values
+	when (t=t.min){x=0; yp=0;} 
+
+  // ODEs
+	x:t = ks*s - kd*yp*x;
+	yp:t = ((k1*x*(yt-yp))/(km1+(yt-yp)))- (k2*e*yp/(km2+yp));
+     
+}

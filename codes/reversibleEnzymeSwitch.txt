@@ -1,0 +1,23 @@
+math reversible_enzymatic_switch
+{ realDomain t;
+       t.min = 0;t.delta = 0.1;t.max = 1000; 
+  
+  //Define dependent variable
+	real Yp(t); 
+
+  //Define parameters
+	real k1 = 0.1; 
+	real k2 = 0.1; 
+	real Km1 = 0.5; 
+	real Km2 = 0.5; 
+	real YT = 1;
+	real Ek = 1;
+	real Ep =1;
+	
+         
+  // Initial value
+        when (t = t.min){Yp =0;}
+            
+  // ODEs
+	 Yp:t =  k1*Ek*(YT-Yp)/(Km1+(YT-Yp)) -  k2*Ep*Yp/(Km2+Yp);     
+}

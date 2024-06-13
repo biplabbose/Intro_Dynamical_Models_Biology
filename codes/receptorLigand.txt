@@ -1,0 +1,20 @@
+math receptor_ligand
+{ realDomain t;
+       t.min = 0;t.delta = 0.1;t.max = 3600; 
+  
+  //Define dependent variable
+	real LR(t); 
+
+  //Define parameters
+	real k1 = 10^(4); //1/M.sec
+	real k2 = 10^(-5); //1/sec
+	real LT = 10^(-6); // M
+	real RT = 10^(-6); // M
+	
+         
+  // Initial value
+        when (t = t.min){LR =0;}
+            
+  // ODEs
+	 LR:t =  k1*(LT-LR)*(RT-LR) - k2*LR;       
+}

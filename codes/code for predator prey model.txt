@@ -1,0 +1,19 @@
+math predator_prey_mode1
+{ realDomain t ;
+	t.min=0;t.delta=0.1;t.max=100; 
+  
+  //Define dependent variables
+  	real x(t), y(t); 
+
+  //Define parameters
+	real k1 = 0.2;
+	real k2 = 0.001;
+	real k3 = 0.5;
+	
+
+       // Initial values
+	when (t=t.min){x=200; y=5;} 
+  // ODEs
+	x:t =  k1*x - k2*x*y;
+	y:t = k2*x*y - k3*y;         
+}

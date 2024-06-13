@@ -1,0 +1,21 @@
+// Jsim code for spread of infection
+
+math INF{
+	realDomain t ;
+		   t.min = 0;
+	           t.max = 20;
+	           t.delta = 0.1;
+			
+	// parameter values is given bellow
+		real r = 0.6; 
+		
+        // Declare the dependent variable
+	real x(t) ;	
+	
+				
+	// Define initial condition
+	when(t=t.min){x = 0.02;}
+	
+	// rate equation is defined bellow
+	x:t = r*(1-x)*x;		   
+}

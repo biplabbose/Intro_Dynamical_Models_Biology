@@ -1,0 +1,20 @@
+math mutual_inhibition
+{ realDomain t ;
+	t.min=0;t.delta=0.1;t.max=20; 
+  
+  //Define dependent variables
+  	real x(t), y(t); 
+
+  //Define parameters
+	real k1 = 3;
+	real k2 = 3;
+	real n1 = 3;
+	real n2 = 3;
+	
+
+       // Initial values
+	when (t=t.min){x=1; y=0;} 
+  // ODEs
+	x:t =  k1*1/(1+y^n1) - x;
+	y:t = k2*1/(1+x^n2) - y;         
+}

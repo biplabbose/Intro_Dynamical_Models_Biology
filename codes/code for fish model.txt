@@ -1,0 +1,18 @@
+math fish_model
+{ realDomain t;
+       t.min = 0;t.delta = 0.01;t.max = 100; 
+  
+  //Define dependent variable
+	real x(t); 
+
+  //Define parameters
+	real r = 1;
+	real k = 100;
+	real d = 20;
+         
+  // Initial value
+        when (t = t.min){x = 45;}
+            
+  // ODEs
+	 x:t =  r*x*(1-x/k) - d;       
+}

@@ -1,0 +1,25 @@
+math IFF1
+{ realDomain t ;
+	t.min=0;t.delta=0.01;t.max=10; 
+  
+  //Define dependent variables
+  	real x(t), y(t); 
+
+  //Define parameters
+	real s = 1; 
+	real k1 = 10; 
+	real k2 = 100; 
+	real k3 = 0.1; 
+	real k4 = 1; 
+	real km = 0.001; 
+	
+
+
+  // Initial values
+	when (t=t.min){x=0; y=0;} 
+
+  // ODEs
+	x:t = k1*s*(1-x) -k2*x*y;
+	y:t = k3*s*(1-y)/(km+1-y) -k4*y;
+     
+}
