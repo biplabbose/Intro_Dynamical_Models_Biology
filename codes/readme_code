@@ -1,0 +1,6 @@
+We use Jsim to simulate dynamical models in this course. This folder holds all the codes used in this course. The codes are provided both as JSim project files as well txt files.
+You can open the project files directly in JSim. You can copy the codes from the txt files and paste in model tab of JSim and create your own project.
+
+JSim could be downloaded from:
+https://www.imagwiki.nibib.nih.gov/physiome/jsim/download
+https://github.com/NSR-Physiome/JSim
